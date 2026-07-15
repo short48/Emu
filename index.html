@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Offline Retro Emulator</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #emulator-container {
+            width: 640px;
+            height: 480px;
+            max-width: 100%;
+            border: 2px solid #333;
+        }
+        .instructions {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Retro Play Space</h1>
+    <p>Upload your own legal .gba, .gbc, or .gb files to play locally.</p>
+
+    <div id="emulator-container">
+        <div id="game"></div>
+    </div>
+
+    <p class="instructions">No files are ever uploaded to a server. Everything runs entirely in your browser.</p>
+
+    <script type="text/javascript">
+        EJS_player = '#game';
+        EJS_core = 'gba'; // Can change dynamically, but 'gba' handles GBA/GB/GBC
+        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'; // Loads emulation engines from a free public CDN
+        
+        // This prompts the user to select their own local ROM file
+        EJS_startOnLoaded = false; 
+    </script>
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+
+</body>
+</html>
